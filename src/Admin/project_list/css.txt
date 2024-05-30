@@ -1,0 +1,125 @@
+:root {
+  --primary-color: #23a4fa;
+  --secondary-color: #ADD8E6;
+  --background-color: #fff;
+  --text-color: #333;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  overflow-y: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: var(--font-family);
+}
+
+.list_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--background-color);
+  min-height: 100vh;
+}
+
+.list_container::before {
+  content: "";
+  position: fixed; /* Changed to fixed for consistent positioning */
+  top: -10%;
+  right: 48%;
+  transform: translateY(-50%);
+  background-image: linear-gradient(-45deg, var(--secondary-color) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+  transition: 1.8s ease-in-out;
+  border-radius: 50%;
+  z-index: -1; /* Moved below the content */
+  width: 100vw; /* Responsive width */
+  height: 100vw; /* Responsive height */
+}
+
+.image-board {
+  z-index: 10;
+  width: 100%; /* Responsive width */
+  height: auto; /* Keep aspect ratio */
+  position: relative; /* Changed to relative */
+  margin: 2rem 0;
+}
+
+.board-Title {
+  text-align: center;
+  font-size: 2rem; /* Larger font size for modern look */
+  color: var(--text-color);
+}
+
+.template-card {
+  background-size: cover;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  margin: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.template-card:hover {
+  transform: translateY(-10px); /* Add hover effect */
+}
+
+.template-card-header,
+.template-card-body {
+  padding: 0.5rem;
+}
+
+.template-card-category {
+  background: var(--text-color);
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--background-color);
+}
+
+.template-card-title {
+  font-size: 1.5rem; /* Larger font size for readability */
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.add-card-button {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 150px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.add-card-button:hover {
+  background-color: #494949; /* Darker grey on hover */
+}
+
+@media (max-width: 768px) {
+  .list_container::before {
+    top: -50%; /* Adjust for mobile */
+    right: -50%; /* Adjust for mobile */
+    transform: scale(2); /* Enlarge circle */
+  }
+
+  .list_container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .template-card,
+  .add-card-button {
+    width: 90%; /* Full width on mobile */
+    margin: 0.5rem;
+  }
+}

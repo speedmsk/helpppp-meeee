@@ -1,0 +1,11 @@
+ const onUpdateColumn = (newColumn) => {
+        const columnIdUpdate = newColumn.id;
+        let newCols = [...columns];
+        let index = newCols.findIndex(item => item.id === columnIdUpdate);
+        if (newColumn._destroy) {
+            newCols.splice(index, 1);
+        } else {
+            newCols[index] = newColumn;
+        }
+        setColumns(newCols);
+    };

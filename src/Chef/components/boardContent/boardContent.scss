@@ -1,0 +1,76 @@
+@import '../../settings';
+
+.board-columns {
+    display: flex;
+    margin: 0 $gap $gap 0;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    
+    &::-webkit-scrollbar
+    {
+        -webkit-appearance: none;
+    }
+    &::-webkit-scrollbar:horizontal
+    {
+        height: 11px;
+    }
+    &::-webkit-scrollbar-thumb
+    {
+        background-color: rgba(2, 36, 185, 0.24) ;
+        border-radius: 5px solid $list-bg-color;
+    }
+    .column-drop-preview {
+        background-color: rgba(150, 150, 200, 0.1);
+        border: 1px dashed #abc;
+        margin: 5px 45px 5px 5px;
+      }
+      .add-new-column{
+        width: 250px;
+        height: 40px;
+        line-height: 32px;
+        padding: 4px 0 4px 15px;
+        cursor: pointer;
+        color: white;
+        margin-left: $gap;
+        font-size: 15px;
+        background-color: #4481eb ;
+        border-radius: $card-border-radius;
+
+
+        &:hover{
+            background-color: #2463cf;
+
+        }
+
+        
+      }
+      .content-add-column{
+        width: 250px;
+        height: fit-content;
+        padding: 5px;
+        margin-left: 10px;
+        background-color: hsla(0, 0%, 100%, 0.34);
+        .group-btn{
+            padding-top: 10px;
+            display: flex;
+            padding-top: 10px;
+            align-items: center ;
+            border-radius: $card-border-radius;
+            i{
+                font-size:  30px;
+                padding-left: 10px;
+                cursor: pointer;
+            }
+        }
+
+        .form-control{
+            width: unset !important;
+        }
+
+
+    }
+
+
+    
+}

@@ -1,0 +1,122 @@
+import './boardContent.scss';
+import Column from '../column/column';
+import { useState, useEffect, useRef } from 'react';
+import { Container, Draggable } from "react-smooth-dnd";
+import { applyDrag } from '../../utilities/dragDrop';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
+const BoardContent = () => {
+    const { boardId } = useParams();
+    const [board, setBoard] = useState({});
+    const [columns, setColumns] = useState([]);
+    const [isShowAddList, setIsShowAddList] = useState(false);
+    const inputRef = useRef(null);
+    const [valueInput, setValueInput] = useState("");
+
+    useEffect(() => {
+        if (isShowAddList && inputRef.current) {
+            inputRef.current.focus();
+        }
+    }, [isShowAddList]);
+
+    useEffect(() => {
+        axios.get(`https://localhost:7125/ByBoard/${boardId}`)
+            .then(response => {
+                const fetchedColumns = response.data;
+                setColumns(fetchedColumns);
+            })
+            .catch(error => {
+                console.error('Failed to fetch columns:', error);
+            });
+    }, [boardId]);
+
+    const onColumnDrop = (dropResult) => {
+        const newColumns = applyDrag(columns, dropResult);
+        setColumns(newColumns);
+    };
+
+    const onCardDrop = (dropResult, columnId) => {
+        const newColumns = columns.map(column => {
+            if (column.id === columnId) {
+                const newCards = applyDrag(column.cards, dropResult);
+                return { ...column, cards: newCards };
+            }
+            return column;
+        });
+        setColumns(newColumns);
+    };
+
+    const handleAddList = () => {
+        if (!valueInput) {
+            inputRef.current?.focus();
+            return;
+        }
+
+        const newColumn = {
+            title: valueInput,
+            cardOrder: [],
+            boardId:boardId
+        };
+
+        axios.post('https://localhost:7125/addcolumn', newColumn)
+            .then(response => {
+                const savedColumn = response.data;
+                setColumns(prevColumns => [...prevColumns, savedColumn]); // Append new column to existing columns
+                setValueInput('');
+                setIsShowAddList(false);
+            })
+            .catch(error => {
+                console.error('Error adding new column:', error);
+            });
+    };
+
+    return (
+        <div className="board-columns">
+            {columns.length > 0 &&
+                <Container
+                    orientation="horizontal"
+                    onDrop={onColumnDrop}
+                    getChildPayload={index => columns[index]}
+                    dragHandleSelector=".column-drag-handle"
+                    dropPlaceholder={{
+                        animationDuration: 150,
+                        showOnTop: true,
+                        className: 'column-drop-preview'
+                    }}
+                >
+                    {columns.map(column => (
+                        <Draggable key={column.id}>
+                            <Column
+                                column={column}
+                                onCardDrop={(dropResult) => onCardDrop(dropResult, column.id)}
+                            />
+                        </Draggable>
+                    ))}
+                </Container>
+            }
+
+            {isShowAddList ?
+                <div className='content-add-column'>
+                    <input
+                        type='text'
+                        className='form-control'
+                        ref={inputRef}
+                        value={valueInput}
+                        onChange={(event) => setValueInput(event.target.value)}
+                    />
+                    <div className='group-btn'>
+                        <button className='btn btn-success' onClick={handleAddList}>Add list</button>
+                        <i className='fa fa-times icon' style={{color:"gray"}} onClick={() => setIsShowAddList(false)}></i>
+                    </div>
+                </div>
+                :
+                <div className='add-new-column' onClick={() => setIsShowAddList(true)}>
+                    <i className='fa fa-plus icon'></i>Add another column
+                </div>
+            }
+        </div>
+    );
+};
+
+export default BoardContent;

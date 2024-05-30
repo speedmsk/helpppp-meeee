@@ -1,0 +1,153 @@
+
+// body{
+//   background-color: #fff;
+//   overflow-y: auto; 
+//   background-repeat: no-repeat;
+//     background-size: cover;
+//     background-attachment: fixed;
+    
+    
+//     &::-webkit-scrollbar {
+//       display: none;
+//   }
+    
+  
+// }
+
+// .list_container {
+  
+//     padding: 0;
+//     margin: 0;
+//     width: 120%;
+//     background-color: #fff;
+//     min-height: 100vh;
+//     min-width: 100%;
+   
+    
+  
+   
+   
+//   }
+//   .list_container::before{
+      
+//     content: "";
+//     position: absolute;
+//     height: 2000px;
+//     width: 2000px;
+//     top: -10%;
+//     right: 48%;
+//     transform: translateY(-50%);
+//     background-image: linear-gradient(-45deg, #ADD8E6 0%, #23a4fa 50% , #ADD8E6 100%);
+//     transition: 1.8s ease-in-out;
+//     border-radius: 50%;
+//     z-index:1;
+    
+//   }
+//   .image-board{
+  
+    
+//     z-index: 11;
+//     height: 500px;
+  
+//     position: sticky;
+//     margin-left: -18cm;
+//     margin-top: 5cm;
+//   }
+//   .board-Title{
+//     position: relative;
+//     left: 11cm;
+//     top:  -1cm;
+//     font-size: 30px;
+//     font-family:'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+
+//   }
+
+//   .template-card {
+//     position: relative;
+   
+//     width: 200px;
+//     height: 150px;
+//     background-size: cover;
+//     border-radius: 10px;
+//     overflow: hidden;
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//     color: white;
+//     margin: 15px;
+//     left: 18cm;
+//     top: -2cm;
+//     cursor: pointer;
+    
+//   }
+  
+  // .template-card-overlay {
+  //   width: 100%;
+  //   height: 100%;
+  //   background-image: url('/dashboard.webp');
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-between;
+  //   padding: 10px;
+  // }
+  
+//   .template-card-header {
+//     align-self: flex-start;
+//   }
+  
+//   .template-card-category {
+//     background: #333;
+//     border-radius: 5px;
+//     padding: 5px 10px;
+//     font-size: 0.75rem;
+//     text-transform: uppercase;
+//   }
+  
+//   .template-card-body {
+//     align-self: flex-end;
+//   }
+  
+//   .template-card-title {
+//     font-size: 1.25rem;
+//     font-weight: bold;
+//   }
+  
+  
+//   .list-card {
+//     position: relative;
+//     display: grid;
+//     column-gap: 50px;
+//     grid-template-columns: auto auto auto;
+    
+
+  
+//     align-items: flex-start; 
+//     padding: 20px; 
+//     left: 30%;
+
+//   }
+ 
+  
+//   .add-card-button {
+//     padding: 10px 20px;
+//     background-color: #545454; // Green background
+//     color: white;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     margin-top: 20px;
+//     display: flex;
+//     flex-wrap: wrap;
+//     flex-direction: column;
+//     width: 200px;
+//     height: 150px;
+//     align-items: center;
+//     justify-content: center;
+//     position: relative;
+//     margin: 15px;
+//     left: 18cm;
+//     top: -2cm;
+    
+//   }
+  
+//   .add-card-button:hover {
+//     background-color:#494949 ; // Darker green on hover
+//   } 

@@ -1,0 +1,108 @@
+@import './settings';
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.3em;
+    font-size: 14px;  
+}
+// .container {
+  
+//   padding: 0;
+//   margin: 0;
+//   width: 120%;
+//   background-color: #fff;
+//   min-height: 100vh;
+//   min-width: 100%;
+//   overflow: hidden;
+// }
+// .container::before{
+    
+//   content: "";
+//   position: absolute;
+//   height: 2000px;
+//   width: 2000px;
+//   top: -10%;
+//   right: 48%;
+//   transform: translateY(-50%);
+//   background-image: linear-gradient(-45deg, #23a4fa 0%, #19ff5a 100%);
+//   transition: 1.8s ease-in-out;
+//   border-radius: 50%;
+//   z-index:3;
+  
+// }
+// .container::before{
+    
+//   content: "";
+//   position: absolute;
+//   height: 2000px;
+//   width: 2000px;
+//   top: -10%;
+//   right: 48%;
+//   transform: translateY(-50%);
+//   background-image: linear-gradient(-45deg, #23a4fa 0%, #f9f925 100%);
+//   transition: 1.8s ease-in-out;
+//   border-radius: 50%;
+//   z-index:3;
+  
+// }
+
+
+// .Task_manager {
+  
+//     height: 100vh;
+//     display: grid;
+//     grid-template-rows: 40px 50px 1fr;
+//     color: $app-main-color;
+  
+    
+    
+//   .icon{
+//     font-size: 14px;
+//     margin-right: 3px;
+//   }
+//   .customize-input-column{
+//     border: none;
+//     cursor: pointer;
+//     &:focus{
+//       outline: none !important;
+//       box-shadow: none !important;
+//     }
+
+//     background-color: inherit;
+//   }
+  
+  
+
+   
+// }
+// .panell {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-end;
+//   justify-content: space-around;
+//   text-align: center;
+//   z-index: 6;
+// }
+
+// .left-panell {
+//   position: absolute;
+//   padding: 0;
+// }
+  
+
+// .panell .contentt {
+//   color: #fff;
+//   transition: transform 0.9s ease-in-out;
+//   transition-delay: 0.6s;
+// }
+// .AppBar{
+//   width: 10000%;
+// }
+// .BoardBar{
+//   width: 10000%;
+//   padding-bottom: 30px;
+// }

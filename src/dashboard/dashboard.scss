@@ -1,0 +1,120 @@
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.3em;
+    font-size: 14px;  
+    overflow-y: hidden;
+    
+
+   
+ 
+    background-image: url('/dashboard.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    &::-webkit-scrollbar
+    {
+      display: none;
+    }
+    .AppBar{
+        width: 123%;
+      }
+      .BoardBar{
+        width: 123%;
+        padding-bottom: 30px;
+      }
+     
+    
+
+
+.dash-container {
+  
+  padding: 0;
+  margin: 0;
+  width: 120%;
+ 
+  min-height: 100vh;
+  min-width: 100%;
+  overflow: hidden;
+ 
+
+ 
+  
+  
+
+
+
+ 
+ 
+}
+.dash-container::before{
+    
+  content: "";
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top: -10%;
+  right: 48%;
+  transform: translateY(-50%);
+ 
+  transition: 1.8s ease-in-out;
+  border-radius: 50%;
+  z-index:3;
+  
+}
+
+
+
+.Task_manager {
+  
+    height: 100vh;
+    display: grid;
+   
+    color: #333;
+   
+  
+    
+    
+  .icon{
+    font-size: 14px;
+    margin-right: 3px;
+  }
+  .customize-input-column{
+    border: none;
+    cursor: pointer;
+    &:focus{
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    background-color: inherit;
+  }
+  
+  
+
+   
+}
+.panell {
+
+ 
+  z-index: 6;
+}
+
+.left-panell {
+  position: absolute;
+  padding: 0;
+}
+  
+
+.panell .contentt {
+  color: #fff;
+  transition: transform 0.9s ease-in-out;
+  transition-delay: 0.6s;
+}
+
+}

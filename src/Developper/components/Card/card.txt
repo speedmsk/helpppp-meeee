@@ -1,0 +1,118 @@
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
+import Dropdown from 'react-bootstrap/Dropdown';
+import { titleBoard } from '../BoardBar/BoardBar';
+
+
+
+import './Card.scss';
+
+
+const Card = (props) => {
+    const { card,columnTitle,index } = props;
+
+
+    
+    
+    
+    const [showModal, setShowModal] = useState(false);
+    
+
+
+    const handleClose = () => setShowModal(false);
+    const handleShow = () => setShowModal(true);
+
+
+    return (
+        <div className='Card-item'>
+            {card.image && (
+                <img 
+                    className='card-cover' 
+                    src={card.image}
+                    alt="Card cover"
+                    onMouseDown={event => event.preventDefault()}
+                />
+            )}
+            <div className='card-title' onClick={handleShow}>
+                {card.title}
+            </div>
+
+            <Modal show={showModal} onHide={handleClose} size="lg">
+                {/* <Modal.Header className='Modal-Header' closeButton>
+                 
+                </Modal.Header> */}
+                <Modal.Body className='modal-body'>
+                <div className='Modal-title'>
+                    <Modal.Title >{card.title}</Modal.Title>
+                    </div>
+                    
+                    <div className="column-dropdown2">
+                     <Dropdown className='Drop-down'>
+                             Dans la list
+                            <Dropdown.Toggle variant="" id="dropdown-basic" size="sm"  >{columnTitle || "Default Column Title"} </Dropdown.Toggle>
+                            
+
+                     <Dropdown.Menu className='dropdown-menu'>
+                     <div className='row justify-content-end '>
+                             
+                             <div class="modal-header">
+                                <span>Déplacer la carte</span>
+                                <button class="close-modal"> <Dropdown.Item>&times;</Dropdown.Item></button>
+                            </div>
+                            <div class="destination-selection">
+            <span>Sélectionner une destination</span>
+            <div class="destination-inputs">
+              <div class="input-group">
+                <label>Tableau</label>
+                <input type="text" placeholder={titleBoard} disabled/>
+              </div>
+              <div class="input-group">
+                <label>Liste</label>
+                <input type="text" placeholder={columnTitle} disabled/>
+              </div>
+              <div class="input-group">
+                <label>Position</label>
+                <input type="number" value={index}/>
+              </div>
+            </div>
+          </div>        
+                        </div>
+                        
+                         
+                     </Dropdown.Menu>
+                    </Dropdown>
+            </div>
+                    <div className='Container'>
+                        <div className='row justify-content-end '>
+                             <div className="col-auto">
+                                <button className="btn btn-details">Membres</button>
+                            </div>
+                        </div>
+                        <div className='row justify-content-end '>
+                             <div className="col-auto">
+                                <button className="btn btn-details">Checklist</button>
+                            </div>
+                        </div>
+                        <div className='row justify-content-end '>
+                             <div className="col-auto">
+                                <button className="btn btn-details">Dates</button>
+                            </div>
+                        </div>
+                      
+                        
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </div>
+    );
+};
+
+export default Card;
